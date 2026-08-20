@@ -529,36 +529,36 @@ export default function Portfolio() {
   const current = TESTIMONIALS_DATA[currentIndex];
 
 
-const handleFormSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setErrorMessage('');
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
 
-  try {
-    const response = await fetch('https://zayn-backend-eight.vercel.app/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formState),
-    });
+    try {
+      const response = await fetch('https://zayn-backend-eight.vercel.app/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (data.success) {
-      setFormSubmitted(true);
-      setFormState({ name: '', email: '', message: '' });
-    } else {
-      setErrorMessage(data.error || 'Failed to send message.');
+      if (data.success) {
+        setFormSubmitted(true);
+        setFormState({ name: '', email: '', message: '' });
+      } else {
+        setErrorMessage(data.error || 'Failed to send message.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setErrorMessage('Server error. Please check if backend is running.');
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    console.error('Submission error:', error);
-    setErrorMessage('Server error. Please check if backend is running.');
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-  
+  };
+
 
 
   return (
@@ -802,7 +802,10 @@ const handleFormSubmit = async (e) => {
 
           {/* HEADER SECTION */}
           <div className="portfolio-section-header">
-            <h2 className="portfolio-main-title">OUR PORTFOLIO</h2>
+              <h1 className="portfolio-heading">
+              <span className="hover-orange">OUR</span>{' '}
+              <span className="hover-orange">PORTFOLIO</span>
+            </h1>
             <p className="portfolio-subtitle">
               Take a look at some of our favorite projects we've worked on recently.
             </p>
@@ -1153,179 +1156,179 @@ const handleFormSubmit = async (e) => {
 
       {/* Contact Section */}
       <section id="contact" className="contact-section">
-      {/* BACKGROUND AMBIENT GLOWS */}
-      <div className="ambient-glow top-glow" />
-      <div className="ambient-glow bottom-glow" />
+        {/* BACKGROUND AMBIENT GLOWS */}
+        <div className="ambient-glow top-glow" />
+        <div className="ambient-glow bottom-glow" />
 
-      <div className="contact-container">
-        {/* SECTION HEADER */}
-        <motion.div
-          className="contact-header-content"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="section-label">// START A PROJECT</span>
-          <h2 className="contact-huge-title">
-            LET'S CREATE SOMETHING <span className="title-accent">CINEMATIC.</span>
-          </h2>
-        </motion.div>
-
-        {/* MAIN GRID */}
-        <div className="contact-grid">
-          {/* FORM CONTAINER */}
+        <div className="contact-container">
+          {/* SECTION HEADER */}
           <motion.div
-            className="contact-form-wrapper"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="contact-header-content"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
           >
-            <AnimatePresence mode="wait">
-              {formSubmitted ? (
-                <motion.div
-                  key="success"
-                  className="form-success-msg"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <div className="success-icon-wrapper">
-                    <CheckCircle2 size={48} className="success-icon" />
-                  </div>
-                  <h3>Booking Request Sent!</h3>
-                  <p>I will review your project footage details and respond within 24 hours.</p>
-                </motion.div>
-              ) : (
-                <form className="contact-form" onSubmit={handleFormSubmit}>
-                  {errorMessage && (
-                    <div style={{ color: '#ef4444', fontSize: '0.85rem', marginBottom: '10px' }}>
-                      {errorMessage}
-                    </div>
-                  )}
+            <span className="section-label">// START A PROJECT</span>
+            <h2 className="contact-huge-title">
+              LET'S CREATE SOMETHING <span className="title-accent">CINEMATIC.</span>
+            </h2>
+          </motion.div>
 
-                  <div className="form-group">
-                    <label>Your Name</label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Director Hamza"
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      required
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label>Email Address</label>
-                    <input
-                      type="email"
-                      placeholder="e.g. hamza@studio.com"
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      required
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label>Project Scope & Requirements</label>
-                    <textarea
-                      rows={5}
-                      placeholder="Tell me about the video type, raw footage duration, timeline, and reference style..."
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      required
-                    />
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    className="submit-btn"
-                    disabled={isSubmitting}
-                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+          {/* MAIN GRID */}
+          <div className="contact-grid">
+            {/* FORM CONTAINER */}
+            <motion.div
+              className="contact-form-wrapper"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <AnimatePresence mode="wait">
+                {formSubmitted ? (
+                  <motion.div
+                    key="success"
+                    className="form-success-msg"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.4 }}
                   >
-                    <span>{isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}</span>
-                    <ArrowRight size={18} className="btn-arrow" />
-                  </motion.button>
-                </form>
-              )}
-            </AnimatePresence>
-          </motion.div>
+                    <div className="success-icon-wrapper">
+                      <CheckCircle2 size={48} className="success-icon" />
+                    </div>
+                    <h3>Booking Request Sent!</h3>
+                    <p>I will review your project footage details and respond within 24 hours.</p>
+                  </motion.div>
+                ) : (
+                  <form className="contact-form" onSubmit={handleFormSubmit}>
+                    {errorMessage && (
+                      <div style={{ color: '#ef4444', fontSize: '0.85rem', marginBottom: '10px' }}>
+                        {errorMessage}
+                      </div>
+                    )}
 
-          {/* RIGHT INFO COLUMN */}
-          <motion.div
-            className="contact-info-col"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <div className="contact-info-block">
-              <span className="info-label">DIRECT EMAIL</span>
-              <a href="mailto:cinegraphix@example.com" className="info-value email-link">
-                cinegraphix@example.com
-              </a>
-            </div>
+                    <div className="form-group">
+                      <label>Your Name</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Director Hamza"
+                        value={formState.name}
+                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                        required
+                      />
+                    </div>
 
-            <div className="contact-info-block">
-              <span className="info-label">MESSAGE</span>
-              <a
-                href="https://wa.me/923217587549?text=Hi%20CineGraphix,%20I%20want%20to%20discuss%20a%20project!"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="info-value email-link"
-              >
-                0321 7587549
-              </a>
-            </div>
+                    <div className="form-group">
+                      <label>Email Address</label>
+                      <input
+                        type="email"
+                        placeholder="e.g. hamza@studio.com"
+                        value={formState.email}
+                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                        required
+                      />
+                    </div>
 
-            <div className="contact-info-block">
-              <span className="info-label">STUDIO LOCATION</span>
-              <span className="info-value">Lahore, Pakistan (Worldwide Remote Edit)</span>
-            </div>
+                    <div className="form-group">
+                      <label>Project Scope & Requirements</label>
+                      <textarea
+                        rows={5}
+                        placeholder="Tell me about the video type, raw footage duration, timeline, and reference style..."
+                        value={formState.message}
+                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                        required
+                      />
+                    </div>
 
-            <div className="contact-info-block">
-              <span className="info-label">SOCIAL CONNECT</span>
-              <div className="social-links-row">
-                <motion.a
-                  whileHover={{ y: -4, scale: 1.08 }}
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-link-btn"
-                >
-                  <Share2 size={20} />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -4, scale: 1.08 }}
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-link-btn"
-                >
-                  <Globe size={20} />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -4, scale: 1.08 }}
-                  href="mailto:cinegraphix@example.com"
-                  className="social-link-btn"
-                >
-                  <Mail size={20} />
-                </motion.a>
+                    <motion.button
+                      type="submit"
+                      className="submit-btn"
+                      disabled={isSubmitting}
+                      whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    >
+                      <span>{isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}</span>
+                      <ArrowRight size={18} className="btn-arrow" />
+                    </motion.button>
+                  </form>
+                )}
+              </AnimatePresence>
+            </motion.div>
+
+            {/* RIGHT INFO COLUMN */}
+            <motion.div
+              className="contact-info-col"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <div className="contact-info-block">
+                <span className="info-label">DIRECT EMAIL</span>
+                <a href="mailto:cinegraphix@example.com" className="info-value email-link">
+                  zaynjuttjutt10@gmail.com
+                </a>
               </div>
-            </div>
 
-            {/* STATUS BADGE */}
-            <div className="availability-card">
-              <span className="live-dot" />
-              <span>CURRENTLY ACCEPTING Q3/Q4 PROJECTS</span>
-            </div>
-          </motion.div>
+              <div className="contact-info-block">
+                <span className="info-label">MESSAGE</span>
+                <a
+                  href="https://wa.me/923019065108?text=Hi%20CineGraphix,%20I%20want%20to%20discuss%20a%20project!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="info-value email-link"
+                >
+                  0301 9065108
+                </a>
+              </div>
+
+              <div className="contact-info-block">
+                <span className="info-label">STUDIO LOCATION</span>
+                <span className="info-value">Lahore, Pakistan (Worldwide Remote Edit)</span>
+              </div>
+
+              <div className="contact-info-block">
+                <span className="info-label">SOCIAL CONNECT</span>
+                <div className="social-links-row">
+                  <motion.a
+                    whileHover={{ y: -4, scale: 1.08 }}
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-link-btn"
+                  >
+                    <Share2 size={20} />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ y: -4, scale: 1.08 }}
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-link-btn"
+                  >
+                    <Globe size={20} />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ y: -4, scale: 1.08 }}
+                    href="mailto:cinegraphix@example.com"
+                    className="social-link-btn"
+                  >
+                    <Mail size={20} />
+                  </motion.a>
+                </div>
+              </div>
+
+              {/* STATUS BADGE */}
+              <div className="availability-card">
+                <span className="live-dot" />
+                <span>CURRENTLY ACCEPTING Q3/Q4 PROJECTS</span>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* FOOTER */}
       <footer className="cine-footer">

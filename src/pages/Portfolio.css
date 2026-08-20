@@ -2346,3 +2346,45 @@ iframe.about-showreel-video {
     border-radius: 16px;
   }
 }
+
+
+/* PORTFOLIO HEAVY HEADING BASE STYLES */
+.portfolio-heading {
+  font-size: clamp(2.5rem, 8vw, 6rem); /* Auto scaling for all screen sizes */
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1.1;
+  word-break: break-word; /* Screen overflow stop karne ke liye */
+  margin: 0 auto 20px auto;
+  max-width: 100%;
+}
+
+/* WORD HOVER EFFECT (Footer Style Orange Color) */
+.portfolio-heading .hover-orange {
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-heading .hover-orange:hover {
+  color: #ff6b00; /* Aapke theme ka exact orange color code */
+  transform: translateY(-2px);
+}
+
+/* MOBILE SPECIFIC RESPONSIVE OVERRIDE */
+@media (max-width: 768px) {
+  .portfolio-heading {
+    font-size: 2.2rem !important; /* Mobile par poora text show hone ke liye size control */
+    letter-spacing: 0px !important;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 400px) {
+  .portfolio-heading {
+    font-size: 1.8rem !important; /* Extra small screens ke liye */
+  }
+}
