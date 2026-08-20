@@ -549,7 +549,7 @@ const handleFormSubmit = async (e) => {
       setFormSubmitted(true);
       setFormState({ name: '', email: '', message: '' });
     } else {
-      setErrorMessage(data.error || 'Failed to send inquiry.');
+      setErrorMessage(data.error || 'Failed to send message.');
     }
   } catch (error) {
     console.error('Submission error:', error);
@@ -1246,7 +1246,7 @@ const handleFormSubmit = async (e) => {
                     whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   >
-                    <span>{isSubmitting ? 'SENDING...' : 'SEND INQUIRY'}</span>
+                    <span>{isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}</span>
                     <ArrowRight size={18} className="btn-arrow" />
                   </motion.button>
                 </form>
