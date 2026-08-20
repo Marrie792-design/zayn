@@ -802,10 +802,10 @@ export default function Portfolio() {
 
           {/* HEADER SECTION */}
           <div className="portfolio-section-header">
-              <h1 className="portfolio-heading">
+              <h2 className="portfolio-heading">
               <span className="hover-orange">OUR</span>{' '}
               <span className="hover-orange">PORTFOLIO</span>
-            </h1>
+            </h2>
             <p className="portfolio-subtitle">
               Take a look at some of our favorite projects we've worked on recently.
             </p>
