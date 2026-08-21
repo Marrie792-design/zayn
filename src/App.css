@@ -1,0 +1,19 @@
+/* GLOBAL EDITOR FONT SETTINGS */
+:root {
+  --main-editor-font: 'JetBrains Mono', monospace;
+  --heading-editor-font: 'Space Mono', monospace; /* Optional: Headings ke liye extra bold tech look */
+}
+
+/* Entire Site Text Update */
+*, *::before, *::after, body, html {
+  font-family: var(--main-editor-font) !important;
+}
+
+/* Headings & Brand Elements Accent Font */
+h1, h2, h3, h4, h5, h6, 
+.giant-footer-title, 
+.portfolio-heading, 
+.brand-logo, 
+.logo {
+  font-family: var(--heading-editor-font) !important;
+}
