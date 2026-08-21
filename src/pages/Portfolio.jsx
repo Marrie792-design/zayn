@@ -733,7 +733,7 @@ export default function Portfolio() {
       <header className={`portfolio-header ${scrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
           <a href="#home" className="brand-logo" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-            CINE GRAPHIX<span className="dot">.</span>
+            HASNAIN GFX<span className="dot">.</span>
           </a>
 
           <nav className="desktop-nav">
@@ -1572,7 +1572,7 @@ export default function Portfolio() {
           {/* GIANT BRAND BANNER TEXT WITH HOVER INTERACTION */}
           <div className="giant-typography-wrapper">
             <h1 className="giant-footer-title">
-              {"CINE GRAPHIX".split("").map((char, index) => (
+              {"HASNAIN GFX".split("").map((char, index) => (
                 <span key={index} className={char === " " ? "space-char" : "hover-letter"}>
                   {char}
                 </span>
