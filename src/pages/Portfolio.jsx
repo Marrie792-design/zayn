@@ -473,7 +473,7 @@ const EXPERIENCE_DATA = [
   {
     year: '2024 — Present',
     position: 'Senior Post-Production Editor',
-    company: 'Cine-Graphix Studio',
+    company: 'Hasnain-Gfx Studio',
     description: 'Head editor for high-budget commercial campaigns, brand films, and music videos. Overseeing color pipelines and final delivery.',
     tools: ['DaVinci Resolve', 'After Effects', 'Premiere Pro']
   },
@@ -496,7 +496,7 @@ const EXPERIENCE_DATA = [
 const TESTIMONIALS_DATA = [
   {
     name: 'Hamza Malik',
-    position: 'Commercial Director, Cine-Graphix',
+    position: 'Commercial Director, Hasnain-Gfx',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
     testimonial: 'His sense of pacing, audio timing, and color grading elevated our commercial campaign to international broadcast standards.'
   },
@@ -826,21 +826,22 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <button
-              className="cta-btn primary"
-              onClick={() => scrollToSection('projects')}
-              onMouseEnter={() => handleCursorEnter('REEL')}
-              onMouseLeave={handleCursorLeave}
-            >
-              WATCH SHOWREEL <Play size={16} fill="currentColor" />
-            </button>
-            <button
-              className="cta-btn secondary"
-              onClick={() => scrollToSection('contact')}
-              onMouseEnter={() => handleCursorEnter('BOOK')}
-              onMouseLeave={handleCursorLeave}
-            >
-              BOOK A PROJECT
-            </button>
+  className="cta-btn primary"
+  onClick={() => scrollToSection('contact')}
+  onMouseEnter={() => handleCursorEnter('BUILD')}
+  onMouseLeave={handleCursorLeave}
+>
+  Let's Build Something 🔥
+</button>
+
+<button
+  className="cta-btn secondary"
+  onClick={() => scrollToSection('portfolio')}
+  onMouseEnter={() => handleCursorEnter('WORK')}
+  onMouseLeave={handleCursorLeave}
+>
+  Watch Our Work
+</button>
           </motion.div>
         </div>
 
@@ -910,7 +911,7 @@ export default function Portfolio() {
               </h2>
 
               <p className="about-description">
-                At <strong>Cine-Graphix</strong>, raw footage is transformed into high-impact visual stories. We focus on precision-cut pacing, advanced DaVinci Resolve color grading, and heavy soundscapes that hook viewers from the very first frame.
+                At <strong>Hanain-Gfx</strong>, raw footage is transformed into high-impact visual stories. We focus on precision-cut pacing, advanced DaVinci Resolve color grading, and heavy soundscapes that hook viewers from the very first frame.
               </p>
 
               {/* SOFTWARE TOOL PILLS */}
@@ -924,15 +925,15 @@ export default function Portfolio() {
               {/* STATS GRID */}
               <div className="about-stats-grid">
                 <div className="about-stat-card">
-                  <h3 className="stat-value">150+</h3>
+                  <h3 className="stat-value">50+</h3>
                   <p className="stat-title">Projects Completed</p>
                 </div>
                 <div className="about-stat-card">
-                  <h3 className="stat-value">03+</h3>
+                  <h3 className="stat-value">01+</h3>
                   <p className="stat-title">Years Experience</p>
                 </div>
                 <div className="about-stat-card">
-                  <h3 className="stat-value">10M+</h3>
+                  <h3 className="stat-value">10k+</h3>
                   <p className="stat-title">Client Impressions</p>
                 </div>
                 <div className="about-stat-card">
@@ -1379,7 +1380,7 @@ export default function Portfolio() {
                       <label>Your Name</label>
                       <input
                         type="text"
-                        placeholder="e.g. Director Hamza"
+                        placeholder="e.g. Muhammad Zain"
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         required
@@ -1390,7 +1391,7 @@ export default function Portfolio() {
                       <label>Email Address</label>
                       <input
                         type="email"
-                        placeholder="e.g. hamza@studio.com"
+                        placeholder="e.g. zaynjuttjutt10@gmail.com"
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         required
@@ -1433,7 +1434,7 @@ export default function Portfolio() {
             >
               <div className="contact-info-block">
                 <span className="info-label">DIRECT EMAIL</span>
-                <a href="mailto:cinegraphix@example.com" className="info-value email-link">
+                <a href="mailto:zaynjuttjutt10@gmail.com" className="info-value email-link">
                   zaynjuttjutt10@gmail.com
                 </a>
               </div>
@@ -1441,7 +1442,7 @@ export default function Portfolio() {
               <div className="contact-info-block">
                 <span className="info-label">MESSAGE</span>
                 <a
-                  href="https://wa.me/923019065108?text=Hi%20CineGraphix,%20I%20want%20to%20discuss%20a%20project!"
+                  href="https://wa.me/923019065108?text=Hi%20HasnainGfx,%20I%20want%20to%20discuss%20a%20project!"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="info-value email-link"
@@ -1478,7 +1479,7 @@ export default function Portfolio() {
                   </motion.a>
                   <motion.a
                     whileHover={{ y: -4, scale: 1.08 }}
-                    href="mailto:cinegraphix@example.com"
+                    href="mailto:zaynjuttjutt10@gmail.com"
                     className="social-link-btn"
                   >
                     <Mail size={20} />
@@ -1505,14 +1506,14 @@ export default function Portfolio() {
             <div className="footer-col">
               <div className="info-group">
                 <span className="col-label">(Our office)</span>
-                <p className="col-text">Samanabad</p>
+                <p className="col-text">DHA Phase 1</p>
                 <p className="col-text">Lahore, Pakistan</p>
               </div>
 
               <div className="info-group margin-top">
                 <span className="col-label">(Contact us)</span>
-                <a href="tel:+923307185888" className="col-text link-text">
-                  +92 330 7185888
+                <a href="tel:+923019065108" className="col-text link-text">
+                  +92 301 9065108
                 </a>
               </div>
             </div>
@@ -1547,8 +1548,8 @@ export default function Portfolio() {
             {/* COLUMN 3: EMAIL & SOCIAL MEDIA */}
             <div className="footer-col right-aligned">
               <span className="col-label">— let's get in touch</span>
-              <a href="mailto:cinegraphixstudio@gmail.com" className="footer-huge-email">
-                cinegraphixstudio@gmail.com
+              <a href="mailto:zaynjuttjutt10@gmail.com" className="footer-huge-email">
+                zaynjuttjutt10@gmail.com
               </a>
 
               <div className="social-group">
@@ -1583,7 +1584,7 @@ export default function Portfolio() {
           {/* SUB FOOTER */}
           <div className="cine-sub-footer">
             <a href="#privacy" className="sub-link">Privacy Policy</a>
-            <p className="copyright-text">Copyright © Cine Graphix 2026</p>
+            <p className="copyright-text">Copyright © Hasnain Gfx 2026</p>
             <a href="#terms" className="sub-link">Terms and Conditions</a>
           </div>
         </div>
