@@ -738,7 +738,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); line-hei
 }
 
 /* RESPONSIVE DESIGN */
-/* @media (max-width: 900px) {
+@media (max-width: 900px) {
   .cine-footer-grid {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -753,7 +753,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); line-hei
     gap: 12px;
     text-align: center;
   }
-} */
+}
 
 
 /* RESPONSIVE */
