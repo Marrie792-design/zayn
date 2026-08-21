@@ -2375,7 +2375,7 @@ iframe.about-showreel-video {
 /* MOBILE SPECIFIC RESPONSIVE OVERRIDE */
 @media (max-width: 768px) {
   .portfolio-heading {
-    font-size: 2.2rem !important; /* Mobile par poora text show hone ke liye size control */
+    font-size: 3.2rem !important; /* Mobile par poora text show hone ke liye size control */
     letter-spacing: 0px !important;
     padding: 0 10px;
     width: 100%;
@@ -2385,6 +2385,6 @@ iframe.about-showreel-video {
 
 @media (max-width: 400px) {
   .portfolio-heading {
-    font-size: 1.8rem !important; /* Extra small screens ke liye */
+    font-size: 2.8rem !important; /* Extra small screens ke liye */
   }
 }
