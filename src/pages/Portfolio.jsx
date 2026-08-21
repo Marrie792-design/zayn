@@ -469,7 +469,7 @@ export default function Portfolio() {
 
 
 
-const [activeTab, setActiveTab] = useState('Graphics');
+const [activeTab, setActiveTab] = useState('Long Form');
   const [activeSubTab, setActiveSubTab] = useState('All');
 
   // Handle main tab changes & reset sub-tab when leaving Graphics
