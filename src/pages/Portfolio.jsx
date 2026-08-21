@@ -363,6 +363,8 @@ const TESTIMONIALS_DATA = [
   }
 ];
 
+const SUB_CATEGORIES = ['All', 'Thumbnails', 'Banners', 'Posters'];
+
 export default function Portfolio() {
   const [playingProjectId, setPlayingProjectId] = useState(null);
   const [activeSection, setActiveSection] = useState('home');
@@ -467,14 +469,33 @@ export default function Portfolio() {
 
 
 
-  const [activeTab, setActiveTab] = useState('LONG FORM');
+const [activeTab, setActiveTab] = useState('Graphics');
+  const [activeSubTab, setActiveSubTab] = useState('All');
 
-  const filteredProjects = PROJECTS_DATA.filter(
-    (project) => project.category === activeTab
-  );
+  // Handle main tab changes & reset sub-tab when leaving Graphics
+  const handleTabChange = (category) => {
+    setActiveTab(category);
+    setActiveSubTab('All'); // Reset sub-category filter on main tab switch
+  };
 
+  // Memoized Filter Logic for Performance
+  const filteredProjects = useMemo(() => {
+    return PROJECTS_DATA.filter((project) => {
+      // 1. Check if the project matches the active main category (case-insensitive)
+      const matchesCategory =
+        project.category.toLowerCase() === activeTab.toLowerCase();
 
+      if (!matchesCategory) return false;
 
+      // 2. If viewing 'Graphics' and a specific sub-category is selected
+      const isGraphicsTab = activeTab.toLowerCase().includes('graphic');
+      if (isGraphicsTab && activeSubTab !== 'All') {
+        return project.subCategory === activeSubTab;
+      }
+
+      return true;
+    });
+  }, [activeTab, activeSubTab]);
 
 
 
@@ -797,181 +818,214 @@ export default function Portfolio() {
 
       {/* SELECTED PROJECTS SECTION */}
       {/* SELECTED PROJECTS SECTION */}
-      <section id="portfolio" className="portfolio-section-dark">
-        <div className="portfolio-container">
+<section id="portfolio" className="portfolio-section-dark">
+  <div className="portfolio-container">
 
-          {/* HEADER SECTION */}
-          <div className="portfolio-section-header">
-            <h1 className="portfolio-heading">
-              <span className="word-wrapper">
-                <span className="hover-letter">O</span>
-                <span className="hover-letter">U</span>
-                <span className="hover-letter">R</span>
-              </span>
-              {' '}
-              <span className="word-wrapper">
-                <span className="hover-letter">P</span>
-                <span className="hover-letter">O</span>
-                <span className="hover-letter">R</span>
-                <span className="hover-letter">T</span>
-                <span className="hover-letter">F</span>
-                <span className="hover-letter">O</span>
-                <span className="hover-letter">L</span>
-                <span className="hover-letter">I</span>
-                <span className="hover-letter">O</span>
-              </span>
-            </h1>
-            <p className="portfolio-subtitle">
-              Take a look at some of our favorite projects we've worked on recently.
-            </p>
+    {/* HEADER SECTION */}
+    <div className="portfolio-section-header">
+      <h1 className="portfolio-heading">
+        <span className="word-wrapper">
+          <span className="hover-letter">O</span>
+          <span className="hover-letter">U</span>
+          <span className="hover-letter">R</span>
+        </span>
+        {' '}
+        <span className="word-wrapper">
+          <span className="hover-letter">P</span>
+          <span className="hover-letter">O</span>
+          <span className="hover-letter">R</span>
+          <span className="hover-letter">T</span>
+          <span className="hover-letter">F</span>
+          <span className="hover-letter">O</span>
+          <span className="hover-letter">L</span>
+          <span className="hover-letter">I</span>
+          <span className="hover-letter">O</span>
+        </span>
+      </h1>
+      <p className="portfolio-subtitle">
+        Take a look at some of our favorite projects we've worked on recently.
+      </p>
 
-            {/* CATEGORY FILTER TABS */}
-            <div className="portfolio-tabs-wrapper">
-              {TABS.map((tab) => (
-                <button
-                  key={tab}
-                  className={`portfolio-tab-btn ${activeTab === tab ? 'active' : ''}`}
-                  onClick={() => {
-                    setActiveTab(tab);
-                    setPlayingProjectId(null); // Tab change hone par video reset
-                  }}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* PROJECTS VIDEO GRID */}
-          <motion.div
-            layout
-            className={`portfolio-video-grid grid-${activeTab.toLowerCase().replace(/\s+/g, '-')}`}
+      {/* CATEGORY FILTER TABS */}
+      <div className="portfolio-tabs-wrapper">
+        {TABS.map((tab) => (
+          <button
+            key={tab}
+            className={`portfolio-tab-btn ${activeTab === tab ? 'active' : ''}`}
+            onClick={() => {
+              setActiveTab(tab);
+              setActiveSubTab('All'); // Sub-tab reset
+              setPlayingProjectId(null);
+            }}
           >
-            <AnimatePresence>
-              {filteredProjects.map((project) => {
-                const { type, embedUrl } = getEmbedInfo(project.videoUrl);
-                const isVideo = Boolean(project.videoUrl);
-                const isPlaying = playingProjectId === project.id;
+            {tab}
+          </button>
+        ))}
+      </div>
 
-                // Autoplay add karne ke liye URL parameter update
-                const activeEmbedUrl = isPlaying
-                  ? `${embedUrl}${embedUrl.includes('?') ? '&' : '?'}autoplay=1`
-                  : embedUrl;
-
-                return (
-                  <motion.div
-                    layout
-                    key={project.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                    className="video-card-container"
-                    /* Jab video play na ho rahi ho tab hi yellow cursor aae */
-                    onMouseEnter={() => {
-                      if (isVideo && !isPlaying) handleCursorEnter('PLAY');
-                    }}
-                    onMouseLeave={() => {
-                      if (isVideo && !isPlaying) handleCursorLeave();
-                    }}
-                    onClick={() => {
-                      if (isVideo && !isPlaying) {
-                        handleCursorLeave();
-                        setPlayingProjectId(project.id); // Card ke andar hi play karein
-                      }
-                    }}
-                  >
-                    {isVideo ? (
-                      <div className="video-iframe-wrapper">
-                        {/* Overlay sirf tab rahega jab video play na ho rahi ho */}
-                        {!isPlaying && <div className="iframe-mouse-fix" />}
-
-                        {type === 'youtube' || type === 'instagram' ? (
-                          <iframe
-                            src={activeEmbedUrl}
-                            title={project.title}
-                            className="portfolio-video-player"
-                            frameBorder="0"
-                            scrolling="no"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
-                        ) : (
-                          <video
-                            controls
-                            autoPlay={isPlaying}
-                            controlsList="nodownload"
-                            poster={project.thumbnail}
-                            src={project.videoUrl}
-                            className="portfolio-video-player"
-                          />
-                        )}
-                      </div>
-                    ) : (
-                      <img
-                        src={project.thumbnail}
-                        alt={project.title}
-                        className="portfolio-image-preview"
-                      />
-                    )}
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* VIDEO PREVIEW MODAL */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className="project-modal-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div
-              className="project-modal-content"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+      {/* DYNAMIC SUB-CATEGORIES FOR GRAPHICS */}
+      {(activeTab.toLowerCase().includes('graphic')) && (
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="graphics-sub-tabs-wrapper"
+        >
+          {['All', 'Product Ads', 'Real Estate', 'Islamic'].map((sub) => (
+            <button
+              key={sub}
+              className={`graphics-sub-btn ${activeSubTab === sub ? 'active' : ''}`}
+              onClick={() => setActiveSubTab(sub)}
             >
-              {selectedProject.videoUrl ? (
-                (() => {
-                  const { type, embedUrl } = getEmbedInfo(selectedProject.videoUrl);
-                  return type === 'youtube' || type === 'instagram' ? (
+              {sub}
+            </button>
+          ))}
+        </motion.div>
+      )}
+    </div>
+
+    {/* PROJECTS & GRAPHICS GRID */}
+    <motion.div
+      layout
+      className={`portfolio-video-grid grid-${activeTab.toLowerCase().replace(/\s+/g, '-')}`}
+    >
+      <AnimatePresence>
+        {filteredProjects.map((project) => {
+          const { type, embedUrl } = getEmbedInfo(project.videoUrl || '');
+          const isVideo = Boolean(project.videoUrl);
+          const isPlaying = playingProjectId === project.id;
+          const activeEmbedUrl = isPlaying
+            ? `${embedUrl}${embedUrl.includes('?') ? '&' : '?'}autoplay=1`
+            : embedUrl;
+
+          return (
+            <motion.div
+              layout
+              key={project.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className={`video-card-container ${!isVideo ? 'graphics-card' : ''}`}
+              onMouseEnter={() => {
+                if (isVideo && !isPlaying) handleCursorEnter('PLAY');
+                if (!isVideo) handleCursorEnter('VIEW');
+              }}
+              onMouseLeave={() => {
+                handleCursorLeave();
+              }}
+              onClick={() => {
+                if (isVideo && !isPlaying) {
+                  handleCursorLeave();
+                  setPlayingProjectId(project.id);
+                } else if (!isVideo) {
+                  handleCursorLeave();
+                  setSelectedProject(project); // Image opens in Lightbox Modal
+                }
+              }}
+            >
+              {isVideo ? (
+                <div className="video-iframe-wrapper">
+                  {!isPlaying && <div className="iframe-mouse-fix" />}
+                  {type === 'youtube' || type === 'instagram' ? (
                     <iframe
-                      src={embedUrl}
-                      title={selectedProject.title}
-                      className="modal-video-player"
+                      src={activeEmbedUrl}
+                      title={project.title}
+                      className="portfolio-video-player"
+                      frameBorder="0"
+                      scrolling="no"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
                   ) : (
                     <video
                       controls
-                      autoPlay
-                      src={selectedProject.videoUrl}
-                      className="modal-video-player"
+                      autoPlay={isPlaying}
+                      controlsList="nodownload"
+                      poster={project.thumbnail}
+                      src={project.videoUrl}
+                      className="portfolio-video-player"
                     />
-                  );
-                })()
+                  )}
+                </div>
               ) : (
-                <img
-                  src={selectedProject.thumbnail}
-                  alt={selectedProject.title}
-                  className="modal-image-preview"
-                />
+                /* GRAPHICS POSTER DISPLAY */
+                <div className="graphics-image-box">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    className="portfolio-image-preview"
+                    loading="lazy"
+                  />
+                  <div className="graphics-card-overlay">
+                    <span className="graphics-category-tag">{project.subCategory || 'Graphics'}</span>
+                    <h3 className="graphics-card-title">{project.title}</h3>
+                  </div>
+                </div>
               )}
             </motion.div>
-          </motion.div>
-        )}
+          );
+        })}
       </AnimatePresence>
+    </motion.div>
+  </div>
+</section>
 
-
+{/* FULLSCREEN IMAGE & VIDEO PREVIEW MODAL */}
+<AnimatePresence>
+  {selectedProject && (
+    <motion.div
+      className="project-modal-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setSelectedProject(null)}
+    >
+      <motion.div
+        className="project-modal-content"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {selectedProject.videoUrl ? (
+          (() => {
+            const { type, embedUrl } = getEmbedInfo(selectedProject.videoUrl);
+            return type === 'youtube' || type === 'instagram' ? (
+              <iframe
+                src={embedUrl}
+                title={selectedProject.title}
+                className="modal-video-player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video
+                controls
+                autoPlay
+                src={selectedProject.videoUrl}
+                className="modal-video-player"
+              />
+            );
+          })()
+        ) : (
+          <div className="modal-image-wrapper">
+            <img
+              src={selectedProject.thumbnail}
+              alt={selectedProject.title}
+              className="modal-image-preview"
+            />
+            <button 
+              className="modal-close-btn"
+              onClick={() => setSelectedProject(null)}
+            >
+              ✕
+            </button>
+          </div>
+        )}
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
 
       {/* SERVICES SECTION */}
