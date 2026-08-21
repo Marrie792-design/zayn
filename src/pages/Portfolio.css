@@ -2382,7 +2382,7 @@ iframe.about-showreel-video {
 /* MOBILE SPECIFIC RESPONSIVE OVERRIDE */
 @media (max-width: 768px) {
   .portfolio-heading {
-    font-size: 2.2rem !important;
+    font-size: 2.9rem !important;
     letter-spacing: 1px !important;
     padding: 0 10px;
   }
@@ -2390,6 +2390,6 @@ iframe.about-showreel-video {
 
 @media (max-width: 400px) {
   .portfolio-heading {
-    font-size: 1.8rem !important;
+    font-size: 2.4rem !important;
   }
 }
