@@ -817,7 +817,7 @@ const [activeTab, setActiveTab] = useState('Long Form');
       </section>
 
       {/* SELECTED PROJECTS SECTION */}
-      {/* SELECTED PROJECTS SECTION */}
+     {/* SELECTED PROJECTS SECTION */}
 <section id="portfolio" className="portfolio-section-dark">
   <div className="portfolio-container">
 
@@ -854,7 +854,7 @@ const [activeTab, setActiveTab] = useState('Long Form');
             className={`portfolio-tab-btn ${activeTab === tab ? 'active' : ''}`}
             onClick={() => {
               setActiveTab(tab);
-              setActiveSubTab('All'); // Sub-tab reset
+              setActiveSubTab('All'); // Reset sub-tab
               setPlayingProjectId(null);
             }}
           >
@@ -864,7 +864,7 @@ const [activeTab, setActiveTab] = useState('Long Form');
       </div>
 
       {/* DYNAMIC SUB-CATEGORIES FOR GRAPHICS */}
-      {(activeTab.toLowerCase().includes('graphic')) && (
+      {activeTab.toLowerCase().includes('graphic') && (
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -919,7 +919,7 @@ const [activeTab, setActiveTab] = useState('Long Form');
                   setPlayingProjectId(project.id);
                 } else if (!isVideo) {
                   handleCursorLeave();
-                  setSelectedProject(project); // Image opens in Lightbox Modal
+                  setSelectedProject(project); // Opens full preview modal for image items
                 }
               }}
             >
