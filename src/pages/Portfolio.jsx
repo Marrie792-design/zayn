@@ -802,10 +802,25 @@ export default function Portfolio() {
 
           {/* HEADER SECTION */}
           <div className="portfolio-section-header">
-              <h2 className="portfolio-heading">
-              <span className="hover-orange">OUR</span>{' '}
-              <span className="hover-orange">PORTFOLIO</span>
-            </h2>
+            <h1 className="portfolio-heading">
+              <span className="word-wrapper">
+                <span className="hover-letter">O</span>
+                <span className="hover-letter">U</span>
+                <span className="hover-letter">R</span>
+              </span>
+              {' '}
+              <span className="word-wrapper">
+                <span className="hover-letter">P</span>
+                <span className="hover-letter">O</span>
+                <span className="hover-letter">R</span>
+                <span className="hover-letter">T</span>
+                <span className="hover-letter">F</span>
+                <span className="hover-letter">O</span>
+                <span className="hover-letter">L</span>
+                <span className="hover-letter">I</span>
+                <span className="hover-letter">O</span>
+              </span>
+            </h1>
             <p className="portfolio-subtitle">
               Take a look at some of our favorite projects we've worked on recently.
             </p>

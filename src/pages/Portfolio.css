@@ -2348,43 +2348,48 @@ iframe.about-showreel-video {
 }
 
 
-/* PORTFOLIO HEAVY HEADING BASE STYLES */
+/* PORTFOLIO HEADING BASE STYLES */
 .portfolio-heading {
-  font-size: clamp(2.5rem, 8vw, 6rem); /* Auto scaling for all screen sizes */
+  font-size: clamp(2rem, 4.5vw, 3.8rem); /* Laptop screens par perfect compact size */
   text-align: center;
   text-transform: uppercase;
   font-weight: 900;
   line-height: 1.1;
-  word-break: break-word; /* Screen overflow stop karne ke liye */
+  letter-spacing: 2px;
   margin: 0 auto 20px auto;
   max-width: 100%;
 }
 
-/* WORD HOVER EFFECT (Footer Style Orange Color) */
-.portfolio-heading .hover-orange {
+.portfolio-heading .word-wrapper {
   display: inline-block;
-  transition: color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+/* SINGLE LETTER HOVER EFFECT (Footer Style Orange + Glow) */
+.portfolio-heading .hover-letter {
+  display: inline-block;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
   cursor: pointer;
 }
 
-.portfolio-heading .hover-orange:hover {
-  color: #f59e0b; /* Aapke theme ka exact orange color code */
-  transform: translateY(-2px);
+.portfolio-heading .hover-letter:hover {
+  color: #f59e0b; /* Theme Orange */
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 40px rgba(245, 158, 11, 0.4); /* Glow effect */
+  transform: translateY(-4px) scale(1.08);
 }
 
 /* MOBILE SPECIFIC RESPONSIVE OVERRIDE */
 @media (max-width: 768px) {
   .portfolio-heading {
-    font-size: 3.2rem !important; /* Mobile par poora text show hone ke liye size control */
-    letter-spacing: 0px !important;
+    font-size: 2.2rem !important;
+    letter-spacing: 1px !important;
     padding: 0 10px;
-    width: 100%;
-    box-sizing: border-box;
   }
 }
 
 @media (max-width: 400px) {
   .portfolio-heading {
-    font-size: 2.8rem !important; /* Extra small screens ke liye */
+    font-size: 1.8rem !important;
   }
 }
