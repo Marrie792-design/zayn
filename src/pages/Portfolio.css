@@ -738,7 +738,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); line-hei
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .cine-footer-grid {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -753,7 +753,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); line-hei
     gap: 12px;
     text-align: center;
   }
-}
+} */
 
 
 /* RESPONSIVE */
@@ -762,15 +762,95 @@ body { background-color: var(--bg-primary); color: var(--text-primary); line-hei
   .section-grid, .contact-grid, .modal-two-col { grid-template-columns: 1fr; gap: 40px; }
 }
 
+/* ==========================================================================
+   UPDATED MOBILE RESPONSIVE FOOTER STYLES
+   ========================================================================== */
+
 @media (max-width: 768px) {
-  .desktop-nav { display: none; }
-  .mobile-menu-btn { display: block; }
-  .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .projects-grid, .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
-  .hero-cta-group { flex-direction: column; }
-  .contact-card-box { padding: 24px; }
-  .footer-top { flex-direction: column; gap: 24px; }
+  /* 1. Footer Container Padding Fix */
+  .cine-footer {
+    padding: 50px 20px 20px 20px !important;
+  }
+
+  .cine-footer-container {
+    width: 100%;
+  }
+
+  /* 2. Grid Layout & Alignment */
+  .cine-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .footer-col, 
+  .footer-col.right-aligned {
+    align-items: center !important;
+    text-align: center;
+  }
+
+  .col-label {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 3. Email Overflow Fix for Mobile Screens */
+  .footer-huge-email {
+    font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  /* 4. Social Icons Centering */
+  .social-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .circular-social-links {
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  /* 5. Giant Brand Title Scaling & Word Wrap */
+  .giant-typography-wrapper {
+    padding-top: 20px;
+    margin-top: 10px;
+  }
+
+  .giant-footer-title {
+    font-size: clamp(1.8rem, 8.5vw, 3.5rem) !important;
+    letter-spacing: 1px !important;
+    word-break: break-word;
+    display: block;
+    width: 100%;
+    line-height: 1.1;
+  }
+
+  /* 6. Sub Footer Links & Copyright Stacking */
+  .cine-sub-footer {
+    flex-direction: column !important;
+    gap: 12px;
+    text-align: center;
+    padding-top: 20px;
+  }
 }
+
+@media (max-width: 400px) {
+  .giant-footer-title {
+    font-size: 1.6rem !important;
+  }
+  
+  .footer-huge-email {
+    font-size: 0.95rem !important;
+  }
+}
+
 
 
 
