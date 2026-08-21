@@ -204,25 +204,25 @@ const PROJECTS_DATA = [
     id: '16',
     category: 'GRAPHICS',
     title: 'Motion Graphics Showreel',
-    thumbnail: '/images/graphics/graphics1.webp',
+    thumbnail: '/images/graphics/wallet.png',
   },
   {
     id: '17',
     category: 'GRAPHICS',
     title: 'Motion Graphics Showreel',
-    thumbnail: '/images/graphics/graphics2.webp',
+    thumbnail: '/images/graphics/wallet1.png',
   },
   {
     id: '18',
     category: 'GRAPHICS',
     title: 'Motion Graphics Showreel',
-    thumbnail: '/images/graphics/graphics3.webp',
+    thumbnail: '/images/graphics/wallet2.png',
   },
   {
     id: '19',
     category: 'GRAPHICS',
     title: 'Motion Graphics Showree4',
-    thumbnail: '/images/graphics/graphics1.webp',
+    thumbnail: '/images/graphics/wallet3.png',
   },
 
 
