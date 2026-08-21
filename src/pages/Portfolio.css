@@ -763,15 +763,31 @@ body { background-color: var(--bg-primary); color: var(--text-primary); line-hei
 }
 
 @media (max-width: 768px) {
+  /* Navigation & Layout Controls */
   .desktop-nav { display: none; }
   .mobile-menu-btn { display: block; }
   .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .projects-grid, .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
   .hero-cta-group { flex-direction: column; }
   .contact-card-box { padding: 24px; }
-  .footer-top { flex-direction: column; gap: 24px; }
-}
 
+  /* Grid Layout Adjustments */
+  .projects-grid, 
+  .services-grid, 
+  .testimonials-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  /* Footer Layout & Left-Aligned Office Block */
+  .footer-top { flex-direction: column; gap: 24px; }
+
+  .cine-footer-grid .footer-col:first-child .info-group,
+  .cine-footer-grid .footer-col:first-child .col-text {
+    text-align: left !important;
+    align-items: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
 
 
 
