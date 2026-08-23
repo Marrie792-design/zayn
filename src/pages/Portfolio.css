@@ -2556,3 +2556,388 @@ iframe.about-showreel-video {
   color: #fff;
   margin-top: 4px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   GLOBAL RESPONSIVE MASTER FIXES (ALL SCREENS)
+   ========================================== */
+
+/* 1. Universal Layout & Overflow Safeguard */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+/* 2. Fluid Typography & Headlines Safeguard */
+.hero-title {
+  font-size: clamp(2rem, 6vw, 4.8rem) !important;
+  line-height: 1.1;
+  word-break: keep-all;
+  hyphens: none;
+}
+
+.portfolio-heading {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin: 0 auto 20px auto;
+}
+
+.portfolio-heading .word-wrapper {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.portfolio-heading .hover-letter {
+  display: inline-block;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-heading .hover-letter:hover {
+  color: #f59e0b;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 40px rgba(245, 158, 11, 0.4);
+  transform: translateY(-4px) scale(1.08);
+}
+
+/* Giant Footer Title Fluid Scaling */
+.giant-typography-wrapper {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.giant-footer-title {
+  font-size: clamp(2rem, 9.5vw, 9.5rem) !important;
+  font-weight: 900;
+  color: #333333;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+  user-select: none;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hover-letter {
+  display: inline-block;
+  color: #333333;
+  transition: color 0.25s ease, transform 0.25s ease, text-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.hover-letter:hover {
+  color: #eab308;
+  transform: translateY(-4px);
+  text-shadow: 0 0 25px rgba(234, 179, 8, 0.6);
+}
+
+.space-char {
+  display: inline-block;
+  width: 0.3em;
+}
+
+/* Graphics Sub Tabs & Cards */
+.graphics-sub-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.graphics-sub-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #aaa;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.graphics-sub-btn.active,
+.graphics-sub-btn:hover {
+  background: #f59e0b;
+  color: #000;
+  font-weight: 600;
+  border-color: #f59e0b;
+}
+
+.graphics-card {
+  aspect-ratio: 4 / 5 !important;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.graphics-image-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.graphics-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.graphics-card:hover .graphics-card-overlay {
+  opacity: 1;
+}
+
+.graphics-category-tag {
+  font-size: 0.75rem;
+  color: #f59e0b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.graphics-card-title {
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 4px;
+}
+
+/* About Showreel Video Fix */
+iframe.about-showreel-video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  transform: scale(1.15);
+}
+
+/* ==========================================
+   BREAKPOINT 1: LAPTOPS & TABLETS (MAX 1024PX)
+   ========================================== */
+@media (max-width: 1024px) {
+  .projects-grid, 
+  .services-grid, 
+  .testimonials-grid,
+  .grid-graphics { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+
+  .section-grid, 
+  .contact-grid, 
+  .modal-two-col { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+  }
+}
+
+/* ==========================================
+   BREAKPOINT 2: MEDIUM SCREENS & TABLETS (MAX 900PX)
+   ========================================== */
+@media (max-width: 900px) {
+  .tools-section-light {
+    padding: 60px 16px;
+  }
+
+  .tools-container {
+    flex-direction: column;
+    gap: 30px;
+    min-height: auto;
+  }
+
+  .tools-center-content { order: 2; }
+  .left-side { order: 1; }
+  .right-side { order: 3; }
+
+  .tools-floating-side {
+    width: 100%;
+    height: 110px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .floating-card {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px;
+    animation: mobileFloat 3.5s ease-in-out infinite alternate;
+  }
+
+  .left-side .card-left-1 { left: 2%; top: 20%; animation-delay: 0s; }
+  .left-side .card-left-2 { left: 18%; top: 55%; animation-delay: 0.4s; }
+  .left-side .card-left-3 { left: 35%; top: 15%; animation-delay: 0.8s; }
+  .left-side .card-left-4 { left: 52%; top: 50%; animation-delay: 0.2s; }
+  .left-side .card-left-5 { left: 68%; top: 10%; animation-delay: 0.6s; }
+  .left-side .card-left-6 { left: 84%; top: 45%; animation-delay: 1s; }
+
+  .right-side .card-right-1 { right: 80%; top: 15%; animation-delay: 0.3s; }
+  .right-side .card-right-2 { right: 62%; top: 50%; animation-delay: 0.7s; }
+  .right-side .card-right-3 { right: 44%; top: 10%; animation-delay: 0.1s; }
+  .right-side .card-right-4 { right: 26%; top: 55%; animation-delay: 0.5s; }
+  .right-side .card-right-5 { right: 8%; top: 20%; animation-delay: 0.9s; }
+
+  .about-grid,
+  .cine-footer-grid,
+  .grid-short-form { 
+    grid-template-columns: 1fr !important; 
+    gap: 32px;
+  }
+
+  .about-main-heading { font-size: 2rem; }
+  .footer-huge-email { font-size: 1.3rem; }
+  .cine-sub-footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+@keyframes mobileFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+/* ==========================================
+   BREAKPOINT 3: MOBILE PHONES (MAX 768PX)
+   ========================================== */
+@media (max-width: 768px) {
+  .desktop-nav { display: none !important; }
+  .mobile-menu-btn { display: block !important; }
+
+  section,
+  .hero-section,
+  .about-section,
+  .contact-section,
+  .cine-footer,
+  .timeline-container,
+  .portfolio-section-dark {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+  }
+
+  .hero-content,
+  .contact-header-content,
+  .reviews-content,
+  .section-header,
+  .about-content {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .section-header { flex-direction: column; align-items: center; gap: 16px; }
+
+  .portfolio-video-grid,
+  .projects-grid,
+  .services-grid,
+  .reviews-card-grid,
+  .contact-grid,
+  .about-grid,
+  .grid-long-form,
+  .grid-thumbnail-design,
+  .grid-graphics,
+  .portfolio-video-grid.grid-documentary,
+  .portfolio-video-grid.grid-podcast {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .hero-cta-group,
+  .portfolio-filter-buttons,
+  .filter-btn-group {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .contact-card-box,
+  .contact-form-wrapper {
+    padding: 24px 16px !important;
+  }
+
+  .contact-huge-title { font-size: 2rem; }
+  .reviews-main-title { font-size: 2.2rem; }
+
+  .footer-top { flex-direction: column; gap: 24px; }
+  .footer-huge-email {
+    font-size: 1.25rem;
+    word-break: break-all;
+  }
+
+  .portfolio-heading {
+    font-size: 2.7rem !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+/* ==========================================
+   BREAKPOINT 4: SMALL MOBILES (MAX 480PX & 380PX)
+   ========================================== */
+@media (max-width: 480px) {
+  .hero-cta-group {
+    flex-direction: column !important;
+  }
+
+  .cta-btn {
+    width: 100% !important;
+  }
+
+  .timeline-wrapper { padding-left: 0; }
+  .timeline-vertical-line { left: 11px; }
+  .timeline-item { gap: 15px; }
+  .experience-title { font-size: 1.8rem; }
+  
+  .contact-huge-title { font-size: 1.7rem; }
+  .portfolio-heading { font-size: 2.2rem !important; }
+  .giant-footer-title { font-size: 2.2rem !important; }
+}
+
+@media (max-width: 380px) {
+  .footer-huge-email {
+    font-size: 1rem;
+  }
+
+  .giant-footer-title {
+    font-size: 1.8rem !important;
+  }
+}
