@@ -175,7 +175,16 @@ body {
 .hero-content { position: relative; z-index: 2; max-width: 920px; }
 .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 30px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); font-size: 0.8rem; font-weight: 600; color: var(--accent-gold); margin-bottom: 24px; }
 .badge-dot { width: 6px; height: 6px; background: var(--accent-gold); border-radius: 50%; box-shadow: 0 0 8px var(--accent-gold); }
-.hero-title { font-size: clamp(2.5rem, 5.5vw, 5rem); font-weight: 900; line-height: 1.05; margin-bottom: 24px; }
+/* .hero-title { font-size: clamp(2.5rem, 5.5vw, 5rem); font-weight: 900; line-height: 1.05; margin-bottom: 24px; } */
+/* HERO TITLE FIX FOR SINGLE LINE TEXT */
+.hero-title { 
+  font-size: clamp(1.6rem, 7vw, 5rem) !important; 
+  font-weight: 900; 
+  line-height: 1.1; 
+  margin-bottom: 24px;
+  word-break: keep-all;
+  hyphens: none;
+}
 .text-highlight { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 680px; margin: 0 auto 40px; }
 
