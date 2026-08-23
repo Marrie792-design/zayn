@@ -1,7 +1,43 @@
+/* Custom Editor Font Import */
+@font-face {
+  font-family: 'Custom Editor';
+  src: url('./fonts/Editor-Regular-BF647813f3bddb5.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Custom Editor';
+  src: url('./fonts/Editor-Italic-BF647813f3da2d3.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Custom Editor';
+  src: url('./fonts/Editor-Medium-BF647813f3c1bc6.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Custom Editor';
+  src: url('./fonts/Editor-Bold-BF647813f39f7bd.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Custom Editor';
+  src: url('./fonts/Editor-Extrabold-BF647813f3c4881.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 /* GLOBAL EDITOR FONT SETTINGS */
 :root {
-  --main-editor-font: 'JetBrains Mono', monospace;
-  --heading-editor-font: 'Space Mono', monospace; /* Optional: Headings ke liye extra bold tech look */
+  --main-editor-font: 'Custom Editor', monospace;
+  --heading-editor-font: 'Custom Editor', monospace;
 }
 
 /* Entire Site Text Update */
@@ -9,11 +45,12 @@
   font-family: var(--main-editor-font) !important;
 }
 
-/* Headings & Brand Elements Accent Font */
+/* Headings & Accent Font */
 h1, h2, h3, h4, h5, h6, 
 .giant-footer-title, 
 .portfolio-heading, 
 .brand-logo, 
 .logo {
   font-family: var(--heading-editor-font) !important;
+  font-weight: 700;
 }

@@ -1,3 +1,19 @@
+/* 1. TOP PAR FONT IMPORT KAREIN */
+@font-face {
+  font-family: 'Custom Editor';
+  src: url('./fonts/Editor-Regular-BF647813f3bddb5.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Custom Editor';
+  src: url('./fonts/Editor-Bold-BF647813f39f7bd.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* 2. ROOT VARIABLES UPDATE KAREIN */
 :root {
   --bg-primary: #070709;
   --bg-secondary: #0f0f14;
@@ -11,20 +27,33 @@
   --border-color: rgba(255, 255, 255, 0.08);
   --border-light: rgba(255, 255, 255, 0.18);
   --glass-bg: rgba(15, 15, 20, 0.85);
-  --font-sans: 'Inter', -apple-system, sans-serif;
+  
+  /* Inter ki jagah naya font yahan set karein */
+  --font-sans: 'Custom Editor', monospace;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* 3. GLOBAL FORCE APPLY */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  font-family: var(--font-sans) !important;
+}
 
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-sans) !important;
   overflow-x: hidden;
 }
 
-body { background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+body { 
+  background-color: var(--bg-primary); 
+  color: var(--text-primary); 
+  line-height: 1.6; 
+  font-family: var(--font-sans) !important;
+}
 
 .scroll-progress-bar {
   position: fixed; top: 0; left: 0; right: 0; height: 3px;
