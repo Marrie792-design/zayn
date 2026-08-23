@@ -88,7 +88,7 @@ const RIGHT_TOOLS = [
 
 // --- VIDEO EDITOR PROJECTS DATA ---
 // --- FILTER TABS ---
-const TABS = ['SHORT FORM', 'LONG FORM',  'GRAPHICS', 'DOCUMENTARY', 'PODCAST', 'THUMBNAIL DESIGN'];
+const TABS = ['SHORT FORM', 'LONG FORM', 'GRAPHICS', 'DOCUMENTARY', 'PODCAST', 'THUMBNAIL DESIGN'];
 
 // --- PORTFOLIO DATA ---
 const PROJECTS_DATA = [
@@ -374,7 +374,7 @@ const PROJECTS_DATA = [
     title: 'Motion Graphics Showreel',
     thumbnail: '/images/graphics/wallet51.jpeg',
   },
-  
+
 
 
   // 1. Documentary Video Item
@@ -826,22 +826,22 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <button
-  className="cta-btn primary"
-  onClick={() => scrollToSection('contact')}
-  onMouseEnter={() => handleCursorEnter('BUILD')}
-  onMouseLeave={handleCursorLeave}
->
-  Let's Build Something 🔥
-</button>
+              className="cta-btn primary"
+              onClick={() => scrollToSection('contact')}
+              onMouseEnter={() => handleCursorEnter('BUILD')}
+              onMouseLeave={handleCursorLeave}
+            >
+              Let's Build Something 🔥
+            </button>
 
-<button
-  className="cta-btn secondary"
-  onClick={() => scrollToSection('portfolio')}
-  onMouseEnter={() => handleCursorEnter('WORK')}
-  onMouseLeave={handleCursorLeave}
->
-  Watch Our Work
-</button>
+            <button
+              className="cta-btn secondary"
+              onClick={() => scrollToSection('portfolio')}
+              onMouseEnter={() => handleCursorEnter('WORK')}
+              onMouseLeave={handleCursorLeave}
+            >
+              Watch Our Work
+            </button>
           </motion.div>
         </div>
 
@@ -882,11 +882,19 @@ export default function Portfolio() {
             >
               <div className="video-frame-wrapper">
                 {/* YOUTUBE EMBED IFRAME */}
-                <iframe
+                {/* <iframe
                   src="https://www.youtube.com/embed/9Waoq-_HMGA?autoplay=1&mute=1&loop=1&playlist=9Waoq-_HMGA&controls=0&modestbranding=1&rel=0"
                   title="Showreel"
                   className="about-showreel-video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                /> */}
+                <video
+                  src="/about.mp4"
+                  className="about-showreel-video"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                 />
 
                 {/* FLOATING STATUS BADGE */}

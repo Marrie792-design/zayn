@@ -1,19 +1,19 @@
-/* 1. TOP PAR FONT IMPORT KAREIN */
+/* 1. DELIGHT FONT IMPORT */
 @font-face {
-  font-family: 'Custom Editor';
-  src: url('./fonts/Editor-Regular-BF647813f3bddb5.otf') format('opentype');
+  font-family: 'Barricada';
+  src: url('./fonts/barricada-Exfontb898.otf') format('opentype'); /* Apni exact file ka naam yahan likhein */
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Custom Editor';
-  src: url('./fonts/Editor-Bold-BF647813f39f7bd.otf') format('opentype');
+  font-family: 'Barricada';
+  src: url('./fonts/barricada-Exfontb898.otf') format('opentype'); /* Bold file ka exact naam yahan likhein */
   font-weight: 700;
   font-style: normal;
 }
 
-/* 2. ROOT VARIABLES UPDATE KAREIN */
+/* 2. ROOT VARIABLES SETTINGS */
 :root {
   --bg-primary: #070709;
   --bg-secondary: #0f0f14;
@@ -28,11 +28,10 @@
   --border-light: rgba(255, 255, 255, 0.18);
   --glass-bg: rgba(15, 15, 20, 0.85);
   
-  /* Inter ki jagah naya font yahan set karein */
-  --font-sans: 'Custom Editor', monospace;
+  --font-sans: 'Delight', sans-serif;
 }
 
-/* 3. GLOBAL FORCE APPLY */
+/* 3. SITE-WIDE FORCE APPLY */
 *, *::before, *::after { 
   box-sizing: border-box; 
   margin: 0; 
@@ -78,10 +77,25 @@ body {
 .portfolio-wrapper { position: relative; width: 100%; min-height: 100vh; }
 .section-container { max-width: 1300px; margin: 0 auto; padding: 120px 24px; }
 
+/* SECTION HEADER BARRICADA FONT FORCE APPLY */
+.section-header,
+.section-header * {
+  font-family: 'Barricada', serif !important;
+}
+
 .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; gap: 40px; }
 .section-label { font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: var(--accent-gold); margin-bottom: 8px; display: block; }
 .section-title { font-size: 2.8rem; font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; }
 .section-description { max-width: 460px; color: var(--text-secondary); font-size: 1.05rem; }
+
+
+/* HEADER */
+/* HEADER & BRAND LOGO BARRICADA FONT FORCE APPLY */
+.portfolio-header,
+.portfolio-header *,
+.brand-logo {
+  font-family: 'Barricada', serif !important;
+}
 
 /* HEADER */
 .portfolio-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 24px 0; transition: all 0.3s ease; }
@@ -90,17 +104,43 @@ body {
 .brand-logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 2px; color: var(--text-primary); text-decoration: none; }
 .brand-logo .dot { color: var(--accent-gold); }
 
+
+/* NAVBAR BARRICADA FONT FORCE APPLY */
+.desktop-nav,
+.desktop-nav *,
+.nav-link {
+  font-family: 'Barricada', serif !important;
+}
+
 .desktop-nav { display: flex; gap: 36px; }
 .nav-link { font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; color: var(--text-secondary); text-decoration: none; position: relative; }
 .nav-link:hover, .nav-link.active { color: var(--text-primary); }
 .nav-link.active::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 100%; height: 2px; background: var(--accent-gold); }
 
+/* MOBILE NAV BARRICADA FONT FORCE APPLY */
+.mobile-menu-btn,
+.mobile-nav-overlay,
+.mobile-nav-overlay *,
+.mobile-nav-link {
+  font-family: 'Barricada', serif !important;
+}
+
 .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; }
 .mobile-nav-overlay { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; padding: 24px; gap: 16px; }
 .mobile-nav-link { color: var(--text-secondary); text-decoration: none; font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; }
 
+
 /* HERO WITH VIDEO BG */
 /* HERO WITH VIDEO BG */
+/* HERO SECTION & MARQUEE BARRICADA FONT FORCE APPLY */
+.hero-section,
+.hero-section *,
+.cta-btn,
+.marquee-wrapper,
+.marquee-wrapper * {
+  font-family: 'Barricada', serif !important;
+}
+
 .hero-section { 
   position: relative; 
   min-height: 100vh; 
@@ -123,14 +163,12 @@ body {
   width: 100%; 
   height: 100%; 
   object-fit: cover; 
-  /* Brightness 0.4 se barha kar 0.75-0.85 kar di hai */
   filter: brightness(0.8) contrast(1.1); 
 }
 
 .hero-video-overlay { 
   position: absolute; 
   inset: 0; 
-  /* Overlay density soft kar di hai taake video clear aur bright dikhe */
   background: radial-gradient(circle, rgba(8, 8, 8, 0.4) 0%, rgba(8, 8, 8, 0.85) 90%); 
 }
 
@@ -141,7 +179,6 @@ body {
 .text-highlight { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 680px; margin: 0 auto 40px; }
 
-.hero-cta-group { display: flex; justify-content: center; gap: 20px; }
 /* HERO BUTTONS CONTAINER */
 .hero-cta-group {
   display: flex;
@@ -193,7 +230,7 @@ body {
 /* MOBILE RESPONSIVE STYLING FOR BUTTONS */
 @media (max-width: 600px) {
   .hero-cta-group {
-    flex-direction: row; /* Side-by-side layout */
+    flex-direction: row;
     gap: 10px;
     padding: 0 10px;
   }
@@ -209,7 +246,7 @@ body {
 
 @media (max-width: 380px) {
   .hero-cta-group {
-    flex-direction: column; /* Very small devices stacking */
+    flex-direction: column;
     width: 100%;
   }
 
@@ -225,24 +262,11 @@ body {
 @keyframes scrollWheel { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(10px); } }
 
 /* MARQUEE */
-.marquee-wrapper { width: 100%; overflow: hidden; background: var(--bg-secondary); border-y: 1px solid var(--border-color); padding: 20px 0; display: flex; }
+.marquee-wrapper { width: 100%; overflow: hidden; background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 20px 0; display: flex; }
 .marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 25s linear infinite; }
 .marquee-content { display: flex; align-items: center; gap: 24px; font-size: 0.9rem; font-weight: 900; letter-spacing: 2px; color: var(--text-secondary); padding-right: 24px; }
 .divider { color: var(--accent-gold); }
 @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-/* ABOUT */
-/* .section-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: center; }
-.image-frame { position: relative; width: 100%; aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; }
-.profile-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: filter 0.5s ease; }
-.image-frame:hover .profile-img { filter: grayscale(0%); }
-.frame-border { position: absolute; inset: 0; border: 1px solid var(--border-light); border-radius: 8px; pointer-events: none; }
-.about-bio { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 24px; }
-.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 40px; }
-.stat-card { padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 6px; }
-.stat-number { display: block; font-size: 2.2rem; font-weight: 900; color: var(--accent-gold); }
-.stat-label { font-size: 0.85rem; color: var(--text-muted); } */
-
 
 /* VIDEO MODAL */
 .project-modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(12px); z-index: 10000; display: flex; justify-content: center; align-items: center; padding: 24px; }
@@ -265,6 +289,14 @@ body {
 .meta-value { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
 
 /* SERVICES */
+/* SERVICES & SKILLS SECTION BARRICADA FONT FORCE APPLY */
+.services-grid,
+.services-grid *,
+.skills-interactive-container,
+.skills-interactive-container * {
+  font-family: 'Barricada', serif !important;
+}
+
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .service-card { padding: 36px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease; }
 .service-card:hover { transform: translateY(-6px); border-color: var(--accent-gold); }
@@ -279,6 +311,7 @@ body {
 .skill-pill { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 40px; font-size: 1rem; font-weight: 700; cursor: pointer; }
 .skill-icon { color: var(--accent-gold); }
 
+
 /* EXPERIENCE TIMELINE */
 /* .timeline-wrapper { position: relative; max-width: 900px; margin: 0 auto; padding-left: 30px; border-left: 2px solid var(--border-color); }
 .timeline-item { position: relative; margin-bottom: 48px; }
@@ -292,6 +325,21 @@ body {
 
 /* CONTACT */
 /* CONTACT SECTION BASE */
+/* 1. CONTACT SECTION BASE STYLING */
+.contact-section {
+  font-family: 'Barricada', serif !important;
+}
+
+/* 2. Contact ke andar tamam elements (headings, inputs, buttons, labels) par force apply */
+.contact-section,
+.contact-section *,
+.contact-section input,
+.contact-section textarea,
+.contact-section button,
+.contact-section ::placeholder {
+  font-family: 'Barricada', serif !important;
+}
+
 .contact-section {
   position: relative;
   padding: 120px 20px;
@@ -592,13 +640,28 @@ body {
 
 /* FOOTER */
 /* FOOTER BASE */
+/* 1. Agar Barricada downloaded font file hai to pehle import karein */
+@font-face {
+  font-family: 'Barricada';
+  src: url('./fonts/Barricada-Regular.otf') format('opentype'); /* Apni file ka sahi path aur format dein */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 2. FOOTER BASE STYLING */
 .cine-footer {
   background-color: #080808;
   color: #888888;
   padding: 80px 40px 30px 40px;
-  font-family: inherit;
+  font-family: 'Barricada', serif !important; /* Quotes aur !important add kiya */
   position: relative;
   overflow: hidden;
+}
+
+/* 3. Footer ke andar tamam elements (headings, text, links) par force apply karein */
+.cine-footer, 
+.cine-footer * {
+  font-family: 'Barricada', serif !important;
 }
 
 .cine-footer-container {
@@ -912,6 +975,12 @@ body {
 
 
 
+/* TOOLS LIGHT SECTION BARRICADA FONT FORCE APPLY */
+.tools-section-light,
+.tools-section-light * {
+  font-family: 'Barricada', serif !important;
+}
+
 /* TOOLS LIGHT SECTION BASE */
 .tools-section-light {
   background-color: #f7f7f7;
@@ -971,7 +1040,6 @@ body {
   padding: 0 !important;
   overflow: hidden;
   cursor: pointer;
-  /* Smooth Hover Scale Transition */
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   z-index: 3;
 }
@@ -1023,7 +1091,7 @@ body {
 
   .tools-floating-side {
     width: 100%;
-    height: 110px; /* Floating space height */
+    height: 110px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -1065,10 +1133,15 @@ body {
 
 
 
-
-
-
 /* PORTFOLIO SECTION WRAPPER */
+/* PORTFOLIO SECTION & MODAL BARRICADA FONT FORCE APPLY */
+.portfolio-section-dark,
+.portfolio-section-dark *,
+.project-modal-backdrop,
+.project-modal-backdrop * {
+  font-family: 'Barricada', serif !important;
+}
+
 .portfolio-section-dark {
   position: relative !important;
   display: block !important;
@@ -1088,9 +1161,9 @@ body {
   align-items: center;
 }
 
-/* SPECIFIC SECTION HEADER (NO CONFLICT WITH TOP NAVBAR) */
+/* SPECIFIC SECTION HEADER */
 .portfolio-section-header {
-  position: relative !important; /* Forces normal document flow */
+  position: relative !important;
   top: auto !important;
   left: auto !important;
   text-align: center;
@@ -1104,7 +1177,7 @@ body {
 
 /* TITLE & SUBTITLE */
 .portfolio-main-title {
-  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-family: 'Barricada', serif !important;
   font-size: 4.8rem;
   font-weight: 900;
   letter-spacing: 2px;
@@ -1154,10 +1227,6 @@ body {
   border-color: #ffffff;
 }
 
-
-
-
-/* VIDEO GRID - EXACT 2 COLUMNS PER ROW */
 /* BASE GRID STYLES */
 .portfolio-video-grid {
   display: grid;
@@ -1181,14 +1250,19 @@ body {
 
 /* 2. SHORT FORM (3 COLUMNS - 9:16 REEL RATIO) */
 .grid-short-form {
-  grid-template-columns: repeat(3, 1fr);
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 30px auto 0 auto;
 }
 
 .grid-short-form .video-card-container {
   aspect-ratio: 9 / 16;
+  width: 100%;
 }
 
-/* 3. GRAPHICS (3 COLUMNS - PORTRAIT POST/BANNER RATIO) */
+/* 3. GRAPHICS (3 COLUMNS) */
 .grid-graphics {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -1217,50 +1291,6 @@ body {
 }
 
 .portfolio-video-player,
-.portfolio-image-preview {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 20px;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-  .grid-short-form,
-  .grid-graphics {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .grid-long-form,
-  .grid-thumbnail-design,
-  .grid-short-form,
-  .grid-graphics {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* VIDEO & THUMBNAIL MEDIA FIX */
-.portfolio-video-player,
-.portfolio-image-preview {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important; /* Video stretch nahi hogi */
-  display: block;
-  border-radius: 20px;
-}
-
-/* MOBILE RESPONSIVE (1 COLUMN ON MOBILE SCREENS) */
-@media (max-width: 768px) {
-  .portfolio-video-grid {
-    grid-template-columns: 1fr !important; /* Choti screen par 1 column */
-    gap: 16px !important;
-  }
-}
-
-.portfolio-video-player,
 .portfolio-image-preview,
 iframe.portfolio-video-player {
   width: 100% !important;
@@ -1271,67 +1301,38 @@ iframe.portfolio-video-player {
   display: block;
 }
 
-
-
-
-/* SHORT FORM - EXACTLY 3 VIDEOS PER ROW */
-.grid-short-form {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 24px;
-  max-width: 1100px;
-  margin: 30px auto 0 auto;
+.portfolio-image-preview {
+  object-fit: contain !important;
+  background-color: #0a0a0a;
 }
 
-.grid-short-form .video-card-container {
-  aspect-ratio: 9 / 16;
-  width: 100%;
-}
-
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 992px) {
-  .grid-short-form {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .grid-short-form {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-.video-card-container {
-  width: 100%;
-  aspect-ratio: 9 / 16; /* Vertical reels aspect ratio */
-  border-radius: 16px;
-  overflow: hidden;
-  background-color: #000;
-}
-
-.portfolio-video-player,
-iframe.portfolio-video-player {
+.video-iframe-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  border: none;
-  object-fit: cover;
 }
 
+.iframe-mouse-fix {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: transparent;
+  pointer-events: auto;
+}
 
-/* DOCUMENTARY CATEGORY GRID (2 VIDEOS PER ROW) */
+/* DOCUMENTARY CATEGORY GRID */
 .portfolio-video-grid.grid-documentary {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 1 row mein 2 columns */
-  gap: 24px; /* Videos ke darmayan gap */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* DOCUMENTARY CARD & VIDEO ASPECT RATIO (16:9) */
 .grid-documentary .video-card-container {
   width: 100%;
-  aspect-ratio: 16 / 9; /* Landscape Video ratio */
+  aspect-ratio: 16 / 9;
   border-radius: 16px;
   overflow: hidden;
   background-color: #0f0f0f;
@@ -1341,40 +1342,11 @@ iframe.portfolio-video-player {
 }
 
 .grid-documentary .video-card-container:hover {
-  border-color: #f59e0b; /* Hover par neon highlight */
+  border-color: #f59e0b;
   transform: translateY(-4px);
 }
 
-.grid-documentary .portfolio-video-player {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: none;
-}
-
-/* RESPONSIVE: MOBILE PAR 1 VIDEO PER ROW */
-@media (max-width: 768px) {
-  .portfolio-video-grid.grid-documentary {
-    grid-template-columns: 1fr; /* Mobile screens par 1 video row-wise */
-    gap: 16px;
-  }
-}
-
-
-
-
-/* Image ko crop hone se bachane aur FULL dikhane ke liye */
-.portfolio-image-preview {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Full image dikhayega bina crop kiye */
-  background-color: #0a0a0a; /* Side space cover karne ke liye dark background */
-}
-
-
-
-
-/* PODCAST CATEGORY GRID (2 VIDEOS PER ROW) */
+/* PODCAST CATEGORY GRID */
 .portfolio-video-grid.grid-podcast {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1399,56 +1371,38 @@ iframe.portfolio-video-player {
   transform: translateY(-4px);
 }
 
-.grid-podcast .portfolio-video-player {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: none;
-}
-
-@media (max-width: 768px) {
-  .portfolio-video-grid.grid-podcast {
-    grid-template-columns: 1fr;
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .grid-graphics {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-
-
-
-
-
-
-.video-card-container {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
+@media (max-width: 992px) {
+  .grid-short-form {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 
-.video-iframe-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
+@media (max-width: 768px) {
+  .portfolio-video-grid,
+  .grid-long-form,
+  .grid-thumbnail-design,
+  .grid-graphics,
+  .portfolio-video-grid.grid-documentary,
+  .portfolio-video-grid.grid-podcast {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
 }
 
-/* Yeh overlay iframe ko mouse events block karne se rokega */
-.iframe-mouse-fix {
-  position: absolute;
-  inset: 0;
-  z-index: 10; /* High z-index taake cursor location update hoti rahe */
-  background: transparent;
-  pointer-events: auto; /* Mouse events track karne ke liye zaroori hai */
+@media (max-width: 600px) {
+  .grid-short-form {
+    grid-template-columns: 1fr !important;
+  }
 }
 
-.portfolio-video-player {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-
-/* MODAL BACKDROP */
+/* MODAL STYLES */
 .project-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1461,7 +1415,6 @@ iframe.portfolio-video-player {
   padding: 20px;
 }
 
-/* MODAL CONTAINER - 16:9 Aspect Ratio Fix */
 .project-modal-content {
   position: relative;
   width: 100%;
@@ -1474,7 +1427,6 @@ iframe.portfolio-video-player {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* MODAL VIDEO PLAYER */
 .modal-video-player {
   width: 100%;
   height: 100%;
@@ -1487,7 +1439,6 @@ iframe.portfolio-video-player {
   height: 100%;
   object-fit: contain;
 }
-
 
 /* HERO SECTION CONTAINER */
 .hero-section {
@@ -1533,6 +1484,12 @@ iframe.portfolio-video-player {
 
 /* about */
 /* ABOUT SECTION LAYOUT */
+/* ABOUT SECTION BARRICADA FONT FORCE APPLY */
+.about-section,
+.about-section * {
+  font-family: 'Barricada', serif !important;
+}
+
 .about-section {
   padding: 100px 20px;
   background-color: #080808;
@@ -1551,23 +1508,23 @@ iframe.portfolio-video-player {
   align-items: center;
 }
 
-.video-frame-wrapper {
+/* .video-frame-wrapper {
   position: relative;
   border-radius: 20px;
-  overflow: hidden; /* Out-of-bounds video ko crop karega */
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   aspect-ratio: 4 / 5;
   width: 100%;
 }
 
-/* IFRAME ZOOM FIX */
+
 iframe.about-showreel-video {
   width: 100%;
   height: 100%;
   border: none;
   pointer-events: none;
-  transform: scale(1.4); /* 1.4x scale side spaces ko cut kar dega */
+  transform: scale(1.4);
   transform-origin: center center;
 }
 
@@ -1595,7 +1552,51 @@ iframe.about-showreel-video {
   background-color: #22c55e;
   border-radius: 50%;
   box-shadow: 0 0 8px #22c55e;
+} */
+.video-frame-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  aspect-ratio: 4 / 5;
+  width: 100%;
 }
+
+/* FIX: 'iframe' ki jagah 'video' selector apply karein */
+video.about-showreel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Video bina stretch hue box me perfect fit aayegi */
+  display: block;
+}
+
+.media-floating-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+}
+
 
 /* RIGHT TEXT COLUMN */
 .about-section-tag {
@@ -1794,6 +1795,12 @@ iframe.about-showreel-video {
 
 
 /* EXPERIENCE SECTION CONTAINER */
+/* EXPERIENCE SECTION BARRICADA FONT FORCE APPLY */
+.experience-section,
+.experience-section * {
+  font-family: 'Barricada', serif !important;
+}
+
 .experience-section {
   padding: 100px 20px;
   background-color: #050505;
@@ -1818,6 +1825,7 @@ iframe.about-showreel-video {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
 @media (max-width: 768px) {
   .about-section-tag,
   .experience-tag {
@@ -1825,6 +1833,7 @@ iframe.about-showreel-video {
     text-align: center;
   }
 }
+
 .experience-title {
   font-size: 2.8rem;
   font-weight: 900;
@@ -1853,7 +1862,7 @@ iframe.about-showreel-video {
   position: absolute;
   top: 15px;
   bottom: 15px;
-  left: 31px; /* Align with marker center */
+  left: 31px;
   width: 2px;
   background: linear-gradient(
     180deg,
@@ -1881,7 +1890,7 @@ iframe.about-showreel-video {
   justify-content: center;
   width: 24px;
   height: 24px;
-  margin-top: 20px; /* Vertically align with card header */
+  margin-top: 20px;
   flex-shrink: 0;
 }
 
@@ -2003,8 +2012,13 @@ iframe.about-showreel-video {
 
 
 
-
 /* SECTION BASE */
+/* REVIEWS SECTION BARRICADA FONT FORCE APPLY */
+.reviews-section,
+.reviews-section * {
+  font-family: 'Barricada', serif !important;
+}
+
 .reviews-section {
   background-color: #0d0d0d;
   color: #ffffff;
@@ -2107,7 +2121,7 @@ iframe.about-showreel-video {
 }
 
 .client-role {
-  color: #eab308; /* Yellow/Accent color */
+  color: #eab308;
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 24px;
