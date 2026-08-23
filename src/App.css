@@ -1,4 +1,3 @@
-/* CLEAN BARRICADA FONT DEFINITION */
 @font-face {
   font-family: 'Barricada';
   src: url('/Barricada-Regular.otf') format('opentype');
@@ -7,7 +6,6 @@
   font-display: swap;
 }
 
-/* APPLY GLOBALLY TO ENTIRE SITE */
 *, *::before, *::after, html, body, button, input, textarea, select {
   font-family: 'Barricada', serif !important;
 }

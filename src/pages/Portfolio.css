@@ -1,19 +1,4 @@
-/* 1. DELIGHT FONT IMPORT */
-@font-face {
-  font-family: 'Barricada';
-  src: url('./fonts/Barricada-Regular.otf') format('opentype'); /* Apni exact file ka naam yahan likhein */
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Barricada';
-  src: url('./fonts/Barricada-Regular.otf') format('opentype'); /* Bold file ka exact naam yahan likhein */
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* 2. ROOT VARIABLES SETTINGS */
+/* 1. ROOT VARIABLES SETTINGS */
 :root {
   --bg-primary: #070709;
   --bg-secondary: #0f0f14;
@@ -27,11 +12,11 @@
   --border-color: rgba(255, 255, 255, 0.08);
   --border-light: rgba(255, 255, 255, 0.18);
   --glass-bg: rgba(15, 15, 20, 0.85);
-  
-  --font-sans: 'Delight', sans-serif;
+
+  --font-sans: 'Barricada', serif;
 }
 
-/* 3. SITE-WIDE FORCE APPLY */
+/* 2. SITE-WIDE FORCE APPLY */
 *, *::before, *::after { 
   box-sizing: border-box; 
   margin: 0; 
@@ -649,25 +634,16 @@ body {
 
 /* FOOTER */
 /* FOOTER BASE */
-/* 1. Agar Barricada downloaded font file hai to pehle import karein */
-@font-face {
-  font-family: 'Barricada';
-  src: url('./fonts/Barricada-Regular.otf') format('opentype'); /* Apni file ka sahi path aur format dein */
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* 2. FOOTER BASE STYLING */
+/* FOOTER BASE STYLING */
 .cine-footer {
   background-color: #080808;
   color: #888888;
   padding: 80px 40px 30px 40px;
-  font-family: 'Barricada', serif !important; /* Quotes aur !important add kiya */
   position: relative;
   overflow: hidden;
 }
 
-/* 3. Footer ke andar tamam elements (headings, text, links) par force apply karein */
+/* FOOTER ELEMENTS BARRICADA FONT FORCE */
 .cine-footer, 
 .cine-footer * {
   font-family: 'Barricada', serif !important;
