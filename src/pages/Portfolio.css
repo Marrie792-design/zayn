@@ -1,14 +1,14 @@
 /* 1. DELIGHT FONT IMPORT */
 @font-face {
   font-family: 'Barricada';
-  src: url('./fonts/barricada-Exfontb898.otf') format('opentype'); /* Apni exact file ka naam yahan likhein */
+  src: url('./fonts/Barricada-Regular.otf') format('opentype'); /* Apni exact file ka naam yahan likhein */
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Barricada';
-  src: url('./fonts/barricada-Exfontb898.otf') format('opentype'); /* Bold file ka exact naam yahan likhein */
+  src: url('./fonts/Barricada-Regular.otf') format('opentype'); /* Bold file ka exact naam yahan likhein */
   font-weight: 700;
   font-style: normal;
 }

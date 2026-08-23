@@ -1,14 +1,13 @@
-/* BARRICADA FONT DEFINITION */
+/* CLEAN BARRICADA FONT DEFINITION */
 @font-face {
   font-family: 'Barricada';
-  src: url('/fonts/Barricada-Regular.otf') format('opentype'),
-       url('/Barricada-Regular.otf') format('opentype');
+  src: url('/Barricada-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-/* APPLY BARRICADA FONT GLOBALLY TO ENTIRE SITE */
+/* APPLY GLOBALLY TO ENTIRE SITE */
 *, *::before, *::after, html, body, button, input, textarea, select {
   font-family: 'Barricada', serif !important;
 }
